@@ -1,0 +1,16 @@
+<div class="container">
+   <h1>UI Training Courses</h1>
+<div class="row">
+<div col-md-6 col-sm-6 col-xs-12>
+        <ul>
+                <li *ngFor="let course of courses" (click)="removeCourse(courses.value)"> {{ course }}</li>           
+        </ul>
+</div>
+     <input #newcourse
+     (keyup.enter)="addNewCourse(newcourse.value); newcourse.value='' "
+     ><br>
+     <button (click)=addNewCourse(newcourse.value)>Add New Course</button>
+</div>
+
+</div>
+<hr>
