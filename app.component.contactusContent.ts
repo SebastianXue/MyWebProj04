@@ -9,9 +9,14 @@ import {Getdata} from './app.component.getdata';
                 <h1>learn to call back end data</h1>
                 <div>
                 <button (click)="dataload()">display data</button>
-                <ul>
-                <li *ngFor="let item of resultData">{{ item }}</li>
-                </ul>
+                <tr>
+                   <td>Temprature</td>
+                   <td>Description</td>
+                </tr>
+                <tr *ngFor="let item of resultData">
+                <td> {{ item.main.temp }} </td>
+                <td> {{ item.weather[0].description }}</td>
+                </tr>
                 </div>
             </article>
             </section>
@@ -25,7 +30,8 @@ export class ContactusContent {
   constructor(private gdata:Getdata){};
   resultData={};
   dataload() {
-    this.gdata.getData().subscribe(data => this.resultData=data.results);
+   
+    this.gdata.getData().subscribe(data => this.resultData=data.list);
     console.log(this.resultData);
   }
 }
